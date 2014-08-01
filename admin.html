@@ -4,9 +4,61 @@
 	<meta charset="UTF-8">
 	<title>Admin</title>
 	<link href='http://meyerweb.com/eric/tools/css/reset/' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/css.css">
 	<script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-	<h1>Dit is de admin pagina</h1>
+	<script type="text/javascript">
+    var clicks = 0;
+    var clicks1 = 0;
+    function onClick() {
+        clicks += 1;
+        document.getElementById("home1").innerHTML = clicks;
+    };
+     function onClick1() {
+        clicks1 += 1;
+        document.getElementById("away1").innerHTML = clicks1;
+    };
+    </script>
+
+	<section>
+		<h2>CONTROL PANEL</h2>
+			
+  <div id="score">
+   <img src="https://pbs.twimg.com/profile_images/437613241/belgie.gif" alt="belgie" id="belgie">
+   <h1>BELGIUM</h1>
+   <h2 class="scores" id="home1">0</h2>
+   <h2 class="scores" id="away1">0</h2>
+   <h1>BRAZIL</h1>
+   <img src="http://www.opverrereis.nl/attachments/Image/Brazilie-vlag.jpg?1379627077964" alt="brazil" id="brazil">
+   <button type="button" onClick="onClick()">Home</button>
+   <button type="button" onClick="onClick1()">Away</button>
+  </div>
+
+  <div id="update">
+  	<div id="deel1">
+  	<button type="button">Home</button>
+   <h2 class="scores">0</h2>
+   <h3>TOTAL SHOTS</h3>
+   <h2 class="scores">0</h2>
+   <button type="button">Away</button>
+	</div>
+	<div id="deel2">
+	<button type="button">Home</button>
+   <h2 class="scores">0</h2>
+   <h3>FOULS</h3>
+   <h2 class="scores">0</h2>
+   <button type="button">Away</button>
+	</div>
+  </div>
+
+  <div id="update2">
+   <p>REALTIME UPDATES</p>
+   <p>33' - Goal by Dries Mertens</p>
+   <p>50' - Foul by Denis Glushakov</p>
+  </div>
+		
+
+	</section>
 </body>
 </html>
