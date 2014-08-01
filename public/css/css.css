@@ -1,7 +1,52 @@
-
+/*****ALGEMEEN*****/
 section{
-	width: 90%;
-	margin: auto;
-	height: 500px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	min-height: 550px;
 	border: 1px solid black;
 }
+/*****ADMIN*****/
+#score{
+  height: 200px;
+ }
+ #update{
+  height: 200px;
+ }
+ #deel1{
+ 	float: left;
+ 	height: 50px;
+	width: 430px;
+ }
+ #deel2{
+ 	float: left;
+ 	height: 50px;
+	width: 430px;
+ }
+ #update2{
+  height: 200px;
+ }
+ #belgie{
+  width: 100px;
+  height: 60px;
+  float:left;
+  margin-right: 50px;
+ }
+ #brazil{
+  width: 100px;
+  height: 60px;
+  float: left;
+ }
+ h1{
+  float:left;
+  margin-right: 50px;
+ }
+ .scores{
+  float:left;
+  margin-right: 50px;
+ }
+ h3{
+  float: left;
+  margin-right: 50px;
+ }
+/*****SCOREBOARD*****/
