@@ -6,6 +6,7 @@
 	<link href='http://meyerweb.com/eric/tools/css/reset/' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/css.css">
 	<script src="/socket.io/socket.io.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
 	<script type="text/javascript">
@@ -52,13 +53,60 @@
 	</div>
   </div>
 
-  <div id="update2">
    <p>REALTIME UPDATES</p>
-   <p>33' - Goal by Dries Mertens</p>
-   <p>50' - Foul by Denis Glushakov</p>
-  </div>
-		
+   <div id="updatewrap">  
+      <h1>Enter update</h1>
+      <form id="send-update">
+        <input type="text" size="4" id="min">
+        <input type="text" size="40" id="updateIN">
+        <input type="submit" value="Go"></input>
+      </form>
+         <div class="update2">
 
+         </div>
+      </div>
+<script>
+  jQuery(function($){
+    var socket = io.connect();
+    var $updates = $('.update2');
+    var $minuteBox = $('#min');
+    var $updateForm = $('#send-update');
+    var $updateBox = $('#updateIN');
+
+    //Submit//
+    $updateForm.submit(function(e){
+      e.preventDefault();
+      socket.emit('send update', $updateBox.val());
+      socket.emit('send time', $minuteBox.val());
+      $minuteBox.val('');
+      $updateBox.val('');
+    });
+    //ouder berichten weergeven//
+    socket.on('load old updates', function(docs){
+      for(var i=docs.length-1; i< i >= 0; i--){
+        displayUpdates(docs[i]);
+
+      }
+    });
+
+
+
+    socket.on('new update', function(data){
+      displayUpdates(data);
+    });
+    socket.on('new time', function(data1){
+      displayUpdates(data1);
+    });
+
+    function displayUpdates(data){
+      $updates.append('<div><span class="msg">' +   "min - " + data + "</span></div><br />");
+    }
+     function displayUpdates(data1){
+      $updates.append('<div><span class="msg">' + data1 +  "min - " + "</span></div><br />");
+    }
+
+  });
+</script>
 	</section>
 </body>
 </html>
