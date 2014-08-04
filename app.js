@@ -3,6 +3,7 @@ var express = require('express'),
 	server = require('http').createServer(app),
 	io = require('socket.io').listen(server),
 	mongoose = require('mongoose');
+	minuten = [];
 
 server.listen(3000);
 
@@ -19,7 +20,8 @@ mongoose.connect('mongodb://localhost/scoreboard', function(err){
 var scoreboardSchema = mongoose.Schema({
 	id: Number,
 	min: String,
-	msg: String
+	msg: String,
+	created: {type: Date, default: Date.now}
 });
 
 var Update = mongoose.model('Update', scoreboardSchema);
@@ -39,23 +41,29 @@ app.use(express.static(__dirname + '/public')); //css
 io.sockets.on('connection', function(socket){
 
 	var query = Update.find({});
-	query.sort('created').exec(function(err, docs){		//exec laat het werken
+	query.sort('-created').exec(function(err, docs){		//exec laat het werken
 		if(err) throw err;
 		socket.emit('load old updates', docs);
 	});
 
+	socket.on('send time', function(data){
+		socket.minute = data;
+		minuten.push(socket.minute);
+		//updateMinutes();
+	
+	});
+/*
+	function updateMinutes(){
+		io.sockets.emit('minuutjes', minuten);
+	}
+*/
 	socket.on('send update', function(data){
-	//	var newMsg = new Update(data);//document aanmaken
-	//	newMsg.save(function(err){ //save
-	//		if(err) throw  err;
-	//	});
-		io.sockets.emit('new update', data);//iedereen kan het zien(ook ik)
+	var newMsg = new Update({msg: data, min: socket.minute});//document aanmaken
+		newMsg.save(function(err){ //save
+			if(err) throw  err;
+		});
+	io.sockets.emit('new update', {msg: data, min: socket.minute});//iedereen kan het zien(ook ik)
 	});
-	socket.on('send time', function(data1){
-	//	var newMsg = new Update(data);//document aanmaken
-	//	newMsg.save(function(err){ //save
-	//		if(err) throw  err;
-	//	});
-		io.sockets.emit('new time', data1);//iedereen kan het zien(ook ik)
-	});
+
+
 });
