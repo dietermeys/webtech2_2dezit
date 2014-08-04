@@ -3,10 +3,63 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Scoreboard</title>
-	<link href='http://meyerweb.com/eric/tools/css/reset/' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/css.css">
 	<script src="/socket.io/socket.io.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
-	<h1>Dit is het scoreboard</h1>
+	<section>
+		<h2>Scoreboard</h2>
+			
+  <div id="score">
+   <img src="https://pbs.twimg.com/profile_images/437613241/belgie.gif" alt="belgie" id="belgie">
+   <h1>BELGIUM</h1>
+   <h2 class="scores" id="home1">0</h2>
+   <h2 class="scores" id="away1">0</h2>
+   <h1>BRAZIL</h1>
+   <img src="http://www.opverrereis.nl/attachments/Image/Brazilie-vlag.jpg?1379627077964" alt="brazil" id="brazil">
+  </div>
+
+  <div id="update">
+  	<div id="deel1">
+   <h2 class="scores">0</h2>
+   <h3>TOTAL SHOTS</h3>
+   <h2 class="scores">0</h2>
+	</div>
+	<div id="deel2">
+   <h2 class="scores">0</h2>
+   <h3>FOULS</h3>
+   <h2 class="scores">0</h2>
+	</div>
+  </div>
+
+   <p>REALTIME UPDATES</p>
+   <div id="updatewrap">  
+         <div class="update2">
+
+         </div>
+      </div>
+<script>
+  jQuery(function($){
+    var socket = io.connect();
+    var $updates = $('.update2');
+
+socket.on('load old updates', function(docs){
+      for(var i=0; i < docs.length; i++){
+        displayUpdates(docs[i]);
+      }
+    });
+
+    socket.on('new update', function(data){
+        displayUpdates(data);
+    });
+    
+    function displayUpdates(data){
+      $updates.append('<div><span class="msg">' + data.min + "min - " + data.msg + "</span></div><br />");
+    }
+
+  });
+ </script>
+</section>
 </body>
 </html>
