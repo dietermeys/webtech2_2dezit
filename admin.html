@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Admin</title>
-	<!--<link href='http://meyerweb.com/eric/tools/css/reset/' rel='stylesheet' type='text/css'>-->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link href='http://meyerweb.com/eric/tools/css/reset/reset.css' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/css.css">
 	<script src="/socket.io/socket.io.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -21,9 +22,30 @@
         document.getElementById("away1").innerHTML = clicks1;
     };
     </script>
-
+<nav>
+  <ul>
+    <li>SCORES</li>
+    <li><button class="button" type="button" onClick="onClick()">Home+</button></li>
+    <li><button class="button" type="button" onClick="">Home-</button></li>
+    <li><button class="button" type="button" onClick="onClick1()">Away+</button></li>
+    <li><button class="button" type="button" onClick="">Away-</button></li>
+  </ul>
+    <ul>
+    <li>UPDATES</li>
+     <li>Home</li>
+    <li><button class="button" type="button" onClick="">Shots+</button></li>
+    <li><button class="button" type="button" onClick="">Shots-</button></li>
+    <li><button class="button" type="button" onClick="">Fouls+</button></li>
+    <li><button class="button" type="button" onClick="">Fouls-</button></li>
+    <li>Away</li>
+    <li><button class="button" type="button" onClick="">Shots+</button></li>
+    <li><button class="button" type="button" onClick="">Shots-</button></li>
+    <li><button class="button" type="button" onClick="">Fouls+</button></li>
+    <li><button class="button" type="button" onClick="">Fouls-</button></li>
+  </ul>
+</nav>
 	<section>
-		<h2>CONTROL PANEL</h2>
+	<h2 style="padding: 10px;">CONTROL PANEL</h2>
 			
   <div id="score">
    <img src="https://pbs.twimg.com/profile_images/437613241/belgie.gif" alt="belgie" id="belgie">
@@ -32,39 +54,30 @@
    <h2 class="scores" id="away1">0</h2>
    <h1>BRAZIL</h1>
    <img src="http://www.opverrereis.nl/attachments/Image/Brazilie-vlag.jpg?1379627077964" alt="brazil" id="brazil">
-   <button type="button" onClick="onClick()">Home</button>
-   <button type="button" onClick="onClick1()">Away</button>
   </div>
 
   <div id="update">
-  	<div id="deel1">
-  	<button type="button">Home</button>
+  <div id="deel1">
    <h2 class="scores">0</h2>
    <h3>TOTAL SHOTS</h3>
    <h2 class="scores">0</h2>
-   <button type="button">Away</button>
 	</div>
 	<div id="deel2">
-	<button type="button">Home</button>
    <h2 class="scores">0</h2>
-   <h3>FOULS</h3>
+   <h3 style="margin-right: 90px;margin-left: 34px;">FOULS</h3>
    <h2 class="scores">0</h2>
-   <button type="button">Away</button>
 	</div>
   </div>
 
-   <p>REALTIME UPDATES</p>
-   <div id="updatewrap">  
-      <h1>Enter update</h1>
       <form id="send-update">
-        <input type="text" size="4" id="min">
-        <input type="text" size="40" id="updateIN">
+      <h1>Enter update</h1>
+        <input type="text" size="4" id="min" placeholder="min">
+        <input type="text" size="40" id="updateIN" placeholder="text">
         <input type="submit" value="Go"></input>
       </form>
          <div class="update2">
 
          </div>
-      </div>
 <script>
   jQuery(function($){
     var socket = io.connect();

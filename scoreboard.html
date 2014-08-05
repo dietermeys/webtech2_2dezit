@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Scoreboard</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link href='http://meyerweb.com/eric/tools/css/reset/reset.css' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/css.css">
 	<script src="/socket.io/socket.io.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -34,10 +35,9 @@
 	</div>
   </div>
 
-  <!-- <p>REALTIME UPDATES</p> -->
-         <div class="update2">
-
-         </div>
+  <div class="update2">
+     <p style="font-size: 0.8em;">REALTIME UPDATES</p>
+  </div>
 <script>
   jQuery(function($){
     var socket = io.connect();

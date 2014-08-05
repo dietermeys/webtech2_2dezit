@@ -9,7 +9,9 @@
 }
 html {
     font-family: myFirstFont;
-    text-decoration: none;
+}
+body{
+      text-decoration:none;
 }
 section{
 	width: 80%;
@@ -23,28 +25,48 @@ section{
 #titel{
   text-align: center;
   font-family: boldfont;
+  padding-top: 10px;
 }
 /*****ADMIN*****/
+#send-update{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
 ul{
   float: left;
+  height: 200px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+li{
+  padding: 2px;
+}
+nav{
+  float: left;
+  width: 10%;
 }
 #posts{
   color: red;
   float: left;
 }
 #score{
-  height: 200px;
+  height: 170px;
   width: 66%;
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto;
   border-bottom: 1px solid white;
+  margin-top: px;
+  margin-top: 60px;
  }
  #update{
-  height: 200px;
+  height: 170px;
   width: 65%;
   margin-left: auto;
   margin-right: auto;
   border-bottom: 1px solid white;
+  margin-top: 50px;
  }
  #deel1{
   height: 50px;
@@ -86,6 +108,7 @@ ul{
  h1{
   float:left;
   margin-right: 50px;
+  font-size: 1.4em;
  }
  .scores{
   float:left;
@@ -94,6 +117,10 @@ ul{
  h3{
   float: left;
   margin-right: 50px;
+  font-size: 1.2em;
+ }
+ h2{
+  font-size: 1.3em;
  }
  .update2{
     min-height: 200px;
