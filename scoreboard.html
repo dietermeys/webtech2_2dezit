@@ -3,13 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Scoreboard</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/css.css">
 	<script src="/socket.io/socket.io.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
 	<section>
-		<h2>Scoreboard</h2>
+		<h2 id="titel">WK 2014 | FINAL</h2>
 			
   <div id="score">
    <img src="https://pbs.twimg.com/profile_images/437613241/belgie.gif" alt="belgie" id="belgie">
@@ -28,17 +29,15 @@
 	</div>
 	<div id="deel2">
    <h2 class="scores">0</h2>
-   <h3>FOULS</h3>
+   <h3 style="margin-right: 90px;margin-left: 34px;">FOULS</h3>
    <h2 class="scores">0</h2>
 	</div>
   </div>
 
-   <p>REALTIME UPDATES</p>
-   <div id="updatewrap">  
+  <!-- <p>REALTIME UPDATES</p> -->
          <div class="update2">
 
          </div>
-      </div>
 <script>
   jQuery(function($){
     var socket = io.connect();
@@ -55,7 +54,7 @@ socket.on('load old updates', function(docs){
     });
     
     function displayUpdates(data){
-      $updates.append('<div><span class="msg">' + data.min + "min - " + data.msg + "</span></div><br />");
+      $updates.append('<div id="realtime">' + data.min + "min - " + data.msg + "</div><br />");
     }
 
   });

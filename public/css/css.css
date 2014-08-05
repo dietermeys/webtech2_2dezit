@@ -1,41 +1,87 @@
 /*****ALGEMEEN*****/
+@font-face {
+    font-family: myFirstFont;
+    src: url(Quicksand-Light.otf);
+}
+@font-face {
+    font-family: boldfont;
+    src: url(Quicksand-Bold.otf);
+}
+html {
+    font-family: myFirstFont;
+    text-decoration: none;
+}
 section{
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	min-height: 550px;
-	border: 1px solid black;
+	border: 1px solid white;
+  background-color: rgba(52, 152, 219,1.0);
+  color: white;
+}
+#titel{
+  text-align: center;
+  font-family: boldfont;
 }
 /*****ADMIN*****/
+ul{
+  float: left;
+}
+#posts{
+  color: red;
+  float: left;
+}
 #score{
   height: 200px;
+  width: 66%;
+  margin-left: auto; 
+  margin-right: auto;
+  border-bottom: 1px solid white;
  }
  #update{
   height: 200px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 1px solid white;
  }
  #deel1{
- 	float: left;
- 	height: 50px;
-	width: 430px;
+  height: 50px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
  }
  #deel2{
- 	float: left;
- 	height: 50px;
-	width: 430px;
+  height: 50px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
  }
- #update2{
-  height: 200px;
+ .update2{
+  min-height: 200px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px
+ }
+ #realtime{
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
  }
  #belgie{
   width: 100px;
   height: 60px;
   float:left;
   margin-right: 50px;
+  box-shadow: 0px 0px 40px white;
  }
  #brazil{
   width: 100px;
   height: 60px;
   float: left;
+  box-shadow: 0px 0px 40px white;
  }
  h1{
   float:left;
@@ -48,5 +94,11 @@ section{
  h3{
   float: left;
   margin-right: 50px;
+ }
+ .update2{
+    min-height: 200px;
+    width: 630px;
+    margin: auto;
+    font-size: 1.6em;
  }
 /*****SCOREBOARD*****/
