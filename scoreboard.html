@@ -56,7 +56,23 @@ socket.on('load old updates', function(docs){
     function displayUpdates(data){
       $updates.append('<div id="realtime">' + data.min + "min - " + data.msg + "</div><br />");
     }
+$(document).ready(function() {
 
+        var socket = io.connect();
+
+
+        socket.on('scorehome+', function() {
+            $("#home1").html(function(i, val){
+        return val*1+1
+      });
+        });
+
+        socket.on('scorehome-', function() {
+            $("#home1").html(function(i, val){
+        return val*1-1
+      });
+        });
+    });
   });
  </script>
 </section>

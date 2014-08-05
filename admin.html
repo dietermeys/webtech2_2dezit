@@ -25,23 +25,23 @@
 <nav>
   <ul>
     <li>SCORES</li>
-    <li><button class="button" type="button" onClick="onClick()">Home+</button></li>
-    <li><button class="button" type="button" onClick="">Home-</button></li>
-    <li><button class="button" type="button" onClick="onClick1()">Away+</button></li>
-    <li><button class="button" type="button" onClick="">Away-</button></li>
+    <li><button class="button" type="button" id="homeplus">Home+</button></li>
+    <li><button class="button" type="button" id="homemin">Home-</button></li>
+    <li><button class="button" type="button" >Away+</button></li>
+    <li><button class="button" type="button" >Away-</button></li>
   </ul>
     <ul>
     <li>UPDATES</li>
      <li>Home</li>
-    <li><button class="button" type="button" onClick="">Shots+</button></li>
-    <li><button class="button" type="button" onClick="">Shots-</button></li>
-    <li><button class="button" type="button" onClick="">Fouls+</button></li>
-    <li><button class="button" type="button" onClick="">Fouls-</button></li>
+    <li><button class="button" type="button" >Shots+</button></li>
+    <li><button class="button" type="button" >Shots-</button></li>
+    <li><button class="button" type="button" >Fouls+</button></li>
+    <li><button class="button" type="button" >Fouls-</button></li>
     <li>Away</li>
-    <li><button class="button" type="button" onClick="">Shots+</button></li>
-    <li><button class="button" type="button" onClick="">Shots-</button></li>
-    <li><button class="button" type="button" onClick="">Fouls+</button></li>
-    <li><button class="button" type="button" onClick="">Fouls-</button></li>
+    <li><button class="button" type="button" >Shots+</button></li>
+    <li><button class="button" type="button" >Shots-</button></li>
+    <li><button class="button" type="button" >Fouls+</button></li>
+    <li><button class="button" type="button" >Fouls-</button></li>
   </ul>
 </nav>
 	<section>
@@ -116,6 +116,30 @@
     }
 
   });
+
+$(document).ready(function() {
+
+        var socket = io.connect();
+
+        $('#homeplus').click(function() {
+            socket.emit('click');
+        });
+        $('#homemin').click(function() {
+            socket.emit('click2');
+        });
+
+        socket.on('scorehome+', function() {
+            $("#home1").html(function(i, val){
+        return val*1+1
+      });
+        });
+
+        socket.on('scorehome-', function() {
+            $("#home1").html(function(i, val){
+        return val*1-1
+      });
+        });
+    });
 </script>
 	</section>
 </body>

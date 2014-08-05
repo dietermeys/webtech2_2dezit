@@ -27,7 +27,7 @@ var scoreboardSchema = mongoose.Schema({
 var Update = mongoose.model('Update', scoreboardSchema);
 
 app.get('/', function (req, res) {
-  res.sendfile(__dirname + '/admin.html');
+  res.sendfile(__dirname + '/scoreboard.html');
 });
 app.get('/scoreboard.html', function (req, res) {
   res.sendfile(__dirname + '/scoreboard.html');
@@ -65,5 +65,12 @@ io.sockets.on('connection', function(socket){
 	io.sockets.emit('new update', {msg: data, min: socket.minute});//iedereen kan het zien(ook ik)
 	});
 
+	socket.on('click', function(data){
+        io.sockets.emit('scorehome+',data); 
+    });
+
+    socket.on('click2', function(data){
+        io.sockets.emit('scorehome-',data); 
+    });
 
 });
