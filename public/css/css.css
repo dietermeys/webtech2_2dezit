@@ -12,6 +12,7 @@ html {
 }
 body{
       text-decoration:none;
+      background-color: rgb(149, 165, 166);
 }
 section{
 	width: 80%;
@@ -19,7 +20,7 @@ section{
 	margin-right: auto;
 	min-height: 550px;
 	border: 1px solid white;
-  background-color: rgba(52, 152, 219,1.0);
+  background-color: rgb(127, 140, 141);
   color: white;
 }
 /*#titel{

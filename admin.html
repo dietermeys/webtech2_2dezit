@@ -10,38 +10,27 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
-  <script type="text/javascript">
-    var clicks = 0;
-    var clicks1 = 0;
-    function onClick() {
-        clicks += 1;
-        document.getElementById("home1").innerHTML = clicks;
-    };
-     function onClick1() {
-        clicks1 += 1;
-        document.getElementById("away1").innerHTML = clicks1;
-    };
-    </script>
+
 <nav>
   <ul>
     <li>SCORES</li>
     <li><button class="button" type="button" id="homeplus">Home+</button></li>
     <li><button class="button" type="button" id="homemin">Home-</button></li>
-    <li><button class="button" type="button" >Away+</button></li>
-    <li><button class="button" type="button" >Away-</button></li>
+    <li><button class="button" type="button" id="awayplus">Away+</button></li>
+    <li><button class="button" type="button" id="awaymin">Away-</button></li>
   </ul>
     <ul>
     <li>UPDATES</li>
      <li>Home</li>
-    <li><button class="button" type="button" >Shots+</button></li>
-    <li><button class="button" type="button" >Shots-</button></li>
-    <li><button class="button" type="button" >Fouls+</button></li>
-    <li><button class="button" type="button" >Fouls-</button></li>
+    <li><button class="button" type="button" id="homeshotplus">Shots+</button></li>
+    <li><button class="button" type="button" id="homeshotmin">Shots-</button></li>
+    <li><button class="button" type="button" id="homefoulplus">Fouls+</button></li>
+    <li><button class="button" type="button" id="homefoulmin">Fouls-</button></li>
     <li>Away</li>
-    <li><button class="button" type="button" >Shots+</button></li>
-    <li><button class="button" type="button" >Shots-</button></li>
-    <li><button class="button" type="button" >Fouls+</button></li>
-    <li><button class="button" type="button" >Fouls-</button></li>
+    <li><button class="button" type="button" id="awayshotplus">Shots+</button></li>
+    <li><button class="button" type="button" id="awayshotmin">Shots-</button></li>
+    <li><button class="button" type="button" id="awayfoulplus">Fouls+</button></li>
+    <li><button class="button" type="button" id="awayfoulmin">Fouls-</button></li>
   </ul>
 </nav>
   <section>
@@ -58,14 +47,14 @@
 
   <div id="update">
   <div id="deel1">
-   <h2 class="scores">0</h2>
+   <h2 class="scores" id="shothome1">0</h2>
    <h3>TOTAL SHOTS</h3>
-   <h2 class="scores">0</h2>
+   <h2 class="scores" id="shotaway1">0</h2>
   </div>
   <div id="deel2">
-   <h2 class="scores">0</h2>
+   <h2 class="scores" id="foulhome1">0</h2>
    <h3 style="margin-right: 90px;margin-left: 34px;">FOULS</h3>
-   <h2 class="scores">0</h2>
+   <h2 class="scores" id="foulaway1">0</h2>
   </div>
   </div>
 
@@ -116,30 +105,121 @@
     }
 
   });
-
 $(document).ready(function() {
 
         var socket = io.connect();
 
+        /***SCOREHOME***/
         $('#homeplus').click(function() {
             socket.emit('click');
         });
         $('#homemin').click(function() {
             socket.emit('click2');
         });
-
-        socket.on('scorehome+', function() {
-            $("#home1").html(function(i, val){
-        return val*1+1
-      });
+        /***SCOREAWAY***/
+        $('#awayplus').click(function() {
+            socket.emit('click3');
+        });
+        $('#awaymin').click(function() {
+            socket.emit('click4');
+        });
+        /***SHOTSHOME***/
+        $('#homeshotplus').click(function() {
+            socket.emit('click5');
+        });
+        $('#homeshotmin').click(function() {
+            socket.emit('click6');
+        });
+        /***FOULSHOME***/
+        $('#homefoulplus').click(function() {
+            socket.emit('click7');
+        });
+        $('#homefoulmin').click(function() {
+            socket.emit('click8');
+        });
+        /***SHOTSAWAY***/
+        $('#awayshotplus').click(function() {
+            socket.emit('click9');
+        });
+        $('#awayshotmin').click(function() {
+            socket.emit('click10');
+        });
+        /***FOULSAWAY***/
+        $('#awayfoulplus').click(function() {
+            socket.emit('click11');
+        });
+        $('#awayfoulmin').click(function() {
+            socket.emit('click12');
         });
 
+        /***SCORESHOME***/
+        socket.on('scorehome+', function() {
+           $("#home1").html(function(i, val){
+            return val*1+1
+          });
+        });
         socket.on('scorehome-', function() {
-            $("#home1").html(function(i, val){
-        return val*1-1
-      });
+          $("#home1").html(function(i, val){
+            return val*1-1
+         });
+        });
+        /***SCORESAWAY***/
+        socket.on('scoreaway+', function() {
+         $("#away1").html(function(i, val){
+           return val*1+1
+           });
+        });
+        socket.on('scoreaway-', function() {
+         $("#away1").html(function(i, val){
+           return val*1-1
+          });
+        });
+        /***SHOTSHOME***/
+        socket.on('shothome+', function() {
+           $("#shothome1").html(function(i, val){
+            return val*1+1
+          });
+        });
+        socket.on('shothome-', function() {
+          $("#shothome1").html(function(i, val){
+            return val*1-1
+         });
+        });
+                /***FOULSHOME***/
+        socket.on('foulhome+', function() {
+           $("#foulhome1").html(function(i, val){
+            return val*1+1
+          });
+        });
+        socket.on('foulhome-', function() {
+          $("#foulhome1").html(function(i, val){
+            return val*1-1
+         });
+        });
+        /***SHOTSAWAY***/
+        socket.on('shotaway+', function() {
+         $("#shotaway1").html(function(i, val){
+           return val*1+1
+           });
+        });
+        socket.on('shotaway-', function() {
+         $("#shotaway1").html(function(i, val){
+           return val*1-1
+          });
+        });
+        /***FOULSSAWAY***/
+        socket.on('foulaway+', function() {
+         $("#foulaway1").html(function(i, val){
+           return val*1+1
+           });
+        });
+        socket.on('foulaway-', function() {
+         $("#foulaway1").html(function(i, val){
+           return val*1-1
+          });
         });
     });
+
 </script>
   </section>
 </body>

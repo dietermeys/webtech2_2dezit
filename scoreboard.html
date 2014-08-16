@@ -22,17 +22,17 @@
    <img src="http://www.opverrereis.nl/attachments/Image/Brazilie-vlag.jpg?1379627077964" alt="brazil" id="brazil">
   </div>
 
-  <div id="update">
-  	<div id="deel1">
-   <h2 class="scores">0</h2>
+    <div id="update">
+  <div id="deel1">
+   <h2 class="scores" id="shothome1">0</h2>
    <h3>TOTAL SHOTS</h3>
-   <h2 class="scores">0</h2>
-	</div>
-	<div id="deel2">
-   <h2 class="scores">0</h2>
+   <h2 class="scores" id="shotaway1">0</h2>
+  </div>
+  <div id="deel2">
+   <h2 class="scores" id="foulhome1">0</h2>
    <h3 style="margin-right: 90px;margin-left: 34px;">FOULS</h3>
-   <h2 class="scores">0</h2>
-	</div>
+   <h2 class="scores" id="foulaway1">0</h2>
+  </div>
   </div>
 
   <div class="update2">
@@ -61,19 +61,74 @@ $(document).ready(function() {
         var socket = io.connect();
 
 
+ /***SCORESHOME***/
         socket.on('scorehome+', function() {
-            $("#home1").html(function(i, val){
-        return val*1+1
-      });
+           $("#home1").html(function(i, val){
+            return val*1+1
+          });
         });
-
         socket.on('scorehome-', function() {
-            $("#home1").html(function(i, val){
-        return val*1-1
-      });
+          $("#home1").html(function(i, val){
+            return val*1-1
+         });
+        });
+        /***SCORESAWAY***/
+        socket.on('scoreaway+', function() {
+         $("#away1").html(function(i, val){
+           return val*1+1
+           });
+        });
+        socket.on('scoreaway-', function() {
+         $("#away1").html(function(i, val){
+           return val*1-1
+          });
+        });
+        /***SHOTSHOME***/
+        socket.on('shothome+', function() {
+           $("#shothome1").html(function(i, val){
+            return val*1+1
+          });
+        });
+        socket.on('shothome-', function() {
+          $("#shothome1").html(function(i, val){
+            return val*1-1
+         });
+        });
+                /***FOULSHOME***/
+        socket.on('foulhome+', function() {
+           $("#foulhome1").html(function(i, val){
+            return val*1+1
+          });
+        });
+        socket.on('foulhome-', function() {
+          $("#foulhome1").html(function(i, val){
+            return val*1-1
+         });
+        });
+        /***SHOTSAWAY***/
+        socket.on('shotaway+', function() {
+         $("#shotaway1").html(function(i, val){
+           return val*1+1
+           });
+        });
+        socket.on('shotaway-', function() {
+         $("#shotaway1").html(function(i, val){
+           return val*1-1
+          });
+        });
+        /***FOULSSAWAY***/
+        socket.on('foulaway+', function() {
+         $("#foulaway1").html(function(i, val){
+           return val*1+1
+           });
+        });
+        socket.on('foulaway-', function() {
+         $("#foulaway1").html(function(i, val){
+           return val*1-1
+          });
         });
     });
-  });
+});
  </script>
 </section>
 </body>
