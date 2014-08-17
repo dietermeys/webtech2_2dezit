@@ -1,0 +1,154 @@
+$a:auto;
+
+/*****ALGEMEEN*****/
+@font-face {
+    font-family: myFirstFont;
+    src: url(Quicksand-Light.otf);
+}
+@font-face {
+    font-family: boldfont;
+    src: url(Quicksand-Bold.otf);
+}
+html {
+    font-weight: bold;
+    font-family: myFirstFont;
+}
+body{
+  text-decoration:none;
+  background: url(../fifalogo-kopie.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+section{
+	width: 80%;
+	margin-left: $a;
+	margin-right: $a;
+	min-height: 550px;
+	border: 1px solid white;
+  background-color: rgba(127, 140, 141,0.5);
+  color: white;
+}
+/*#titel{
+  text-align: center;
+  font-family: boldfont;
+  padding-top: 10px;
+}*/
+#titel{
+ font:normal 50pt boldfont;
+ color:#FFFFFF;
+ text-shadow: 0 1px 0 #ccc,
+ 0 2px 0 #c9c9c9,
+ 0 3px 0 #bbb,
+ 0 4px 0 #b9b9b9,
+ 0 5px 0 #aaa,
+ 0 6px 1px rgba(0,0,0,.1),
+ 0 0 5px rgba(0,0,0,.1),
+ 0 1px 3px rgba(0,0,0,.3),
+ 0 3px 5px rgba(0,0,0,.2),
+ 0 5px 10px rgba(0,0,0,.25),
+ 0 10px 10px rgba(0,0,0,.2),
+ 0 20px 20px rgba(0,0,0,.15);
+ text-align: center;
+}
+#send-update{
+  width: 60%;
+  margin-left: $a;
+  margin-right: $a;
+  margin-top: 20px;
+}
+ul{
+  float: left;
+  height: 200px;
+  padding-left: 15px;
+  padding-top: 15px;
+}
+li{
+  padding: 2px;
+}
+nav{
+  float: left;
+  width: 10%;
+}
+#posts{
+  color: red;
+  float: left;
+}
+#score{
+  height: 170px;
+  width: 66%;
+  margin-left: $a;
+  margin-right: $a;
+  border-bottom: 1px solid white;
+  margin-top: px;
+  margin-top: 60px;
+ }
+ #update{
+  height: 170px;
+  width: 65%;
+  margin-left: $a;
+  margin-right: $a;
+  border-bottom: 1px solid white;
+  margin-top: 50px;
+ }
+ #deel1{
+  height: 50px;
+  width: 50%;
+  margin-left: $a;
+  margin-right: $a;
+ }
+ #deel2{
+  height: 50px;
+  width: 50%;
+  margin-left: $a;
+  margin-right: $a;
+ }
+ .update2{
+  min-height: 200px;
+  width: 65%;
+  margin-left: $a;
+  margin-right: $a;
+  padding-top: 10px
+ }
+ #realtime{
+  width: 50%;
+  margin-right: $a;
+  margin-left: $a;
+ }
+ #belgie{
+  width: 100px;
+  height: 60px;
+  float:left;
+  margin-right: 50px;
+  box-shadow: 0px 0px 40px white;
+ }
+ #brazil{
+  width: 100px;
+  height: 60px;
+  float: left;
+  box-shadow: 0px 0px 40px white;
+ }
+ h1{
+  float:left;
+  margin-right: 50px;
+  font-size: 1.4em;
+ }
+ .scores{
+  float:left;
+  margin-right: 50px;
+ }
+ h3{
+  float: left;
+  margin-right: 50px;
+  font-size: 1.2em;
+ }
+ h2{
+  font-size: 1.3em;
+ }
+ .update2{
+    min-height: 200px;
+    width: 630px;
+    margin: $a;
+    font-size: 1.6em;
+ }

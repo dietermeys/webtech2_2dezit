@@ -4,7 +4,9 @@ var express = require('express'),
 	io = require('socket.io').listen(server),
 	mongoose = require('mongoose');
 	minuten = [];
+
 server.listen(3000);
+
 mongoose.connect('mongodb://dieter:blackdown10@kahana.mongohq.com:10048/scoreboard', function(err){
 	if(err){
 		console.log(err);
