@@ -8,11 +8,16 @@
     src: url(Quicksand-Bold.otf);
 }
 html {
+    font-weight: bold;
     font-family: myFirstFont;
 }
 body{
-      text-decoration:none;
-      background-color: rgb(149, 165, 166);
+  text-decoration:none;
+  background: url(../fifalogo-kopie.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 section{
 	width: 80%;
@@ -20,7 +25,7 @@ section{
 	margin-right: auto;
 	min-height: 550px;
 	border: 1px solid white;
-  background-color: rgb(127, 140, 141);
+  background-color: rgba(127, 140, 141,0.5);
   color: white;
 }
 /*#titel{
