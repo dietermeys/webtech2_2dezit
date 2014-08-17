@@ -1,15 +1,20 @@
 // load gulp 
-var gulp = require('gulp'), 
-	concatCSS = require('gulp-concat-css'), 
-	minifyCSS = require('gulp-minify-css'); 
+var gulp = require('gulp'),  
+	minifyCSS = require('gulp-minify-css'),
+	imagemin = require('gulp-imagemin'),
+	pngcrush = require('imagemin-pngcrush');
 gulp.task('minify-css', function() { 
  gulp.src('./public/css/*.css') 
- 	.pipe(concatCSS('build.css')) 
- 	.pipe(minifyCSS(opts)) 
+ 	.pipe(minifyCSS()) 
  	.pipe(gulp.dest('./build/css/')) 
 }); 
-gulp.task('default', ['minify-css']); 
-gulp.task('watch', function(){ // allows us to run 'gulp watch' 
-// watch CSS files changes and run the ‘styles’ task on change
-gulp.watch('./public/css/*.css', [‘styles']);
-}); 
+gulp.task('default', ['minify-css']);
+gulp.task('default', function () {
+    return gulp.src('*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngcrush()]
+        }))
+        .pipe(gulp.dest('dist'));
+});

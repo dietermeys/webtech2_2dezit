@@ -8,13 +8,9 @@
     "mongoose": "3.8.14",
     "socket.io": "1.0.6"
   },
-  "scripts": {
-    "gulp": "gulp",
-    "minify": "gulp minify"
-  },
   "devDependencies": {
     "gulp": "^3.8.7",
-    "gulp-concat-css": "^0.1.4",
+    "gulp-imagemin": "^1.0.0",
     "gulp-minify-css": "^0.3.7"
   }
 }
